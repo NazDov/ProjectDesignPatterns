@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class InMemoryStrategy implements Strategy {
 
-    private List<String> messageList = new ArrayList<String>();
+    private List<String> messageList = new ArrayList<>();
 
     public List<String> getMessageList(){
         return messageList;
