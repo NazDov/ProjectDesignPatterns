@@ -23,10 +23,12 @@ public class ConsoleMocker {
 
     public String getOutput(){
 
-        String output=os.toString();
-
-        clean();
-
+        String output=null;
+        try {
+            output = os.toString();
+        }finally{
+            clean();
+        }
         return output;
     }
 
