@@ -5,19 +5,16 @@ package ProjectDesignPatterns;
  */
 public class Runner {
 
-    Strategy strategy;
-    String message;
+    Target target;
 
-
-    public Runner(Strategy strategy, String message){
-        this.strategy=strategy;
-        this.message=message;
+    public Runner(Target target){
+        this.target=target;
     }
 
 
     public void run() {
 
-        strategy.print(message);
+        target.addMessages(2);
     }
 
 
