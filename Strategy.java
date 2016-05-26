@@ -5,6 +5,5 @@ package ProjectDesignPatterns;
  */
 public interface Strategy {
 
-
     void print(String message);
 }
