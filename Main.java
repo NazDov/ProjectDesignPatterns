@@ -9,7 +9,7 @@ public class Main
     public static void main( String[] args )
     {
 
-        new Runner(new Adapter(ConsoleOutputStrategy.getInstance(),"Hello World")).run();
+        new ToUpperCaseDecorator(new Runner(new Adapter(ConsoleOutputStrategy.getInstance()))).run("Hello World");
     }
 
 

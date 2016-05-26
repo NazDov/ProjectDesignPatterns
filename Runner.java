@@ -3,7 +3,7 @@ package ProjectDesignPatterns;
 /**
  * Created by User on 26.05.2016.
  */
-public class Runner {
+public class Runner implements Component {
 
     Target target;
 
@@ -12,9 +12,9 @@ public class Runner {
     }
 
 
-    public void run() {
+    public void run(String msg) {
 
-        target.addMessages(2);
+        target.addMessages(msg);
     }
 
 

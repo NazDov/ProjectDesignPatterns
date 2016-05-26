@@ -6,23 +6,17 @@ package ProjectDesignPatterns;
 public class Adapter implements Target {
 
     private Strategy strategy;
-    private String msg;
 
-    public Adapter(Strategy instance, String msg) {
+    public Adapter(Strategy instance) {
         this.strategy=instance;
-        this.msg=msg;
     }
 
+
+
     @Override
-    public void addMessages(int number) {
-
-        StringBuilder sBuild = new StringBuilder();
-        for(int i=0; i<number; i++){
-
-            sBuild.append(msg);
-            sBuild.append(System.lineSeparator());
+    public void addMessages(String... msgs) {
+        for(String msg: msgs){
+            strategy.print(msg);
         }
-
-        strategy.print(sBuild.toString());
     }
 }

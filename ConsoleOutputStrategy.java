@@ -7,6 +7,10 @@ public final class ConsoleOutputStrategy implements Strategy {
 
     private static ConsoleOutputStrategy instance;
 
+    private ConsoleOutputStrategy(){
+
+    }
+
     public static ConsoleOutputStrategy getInstance() {
 
         return instance=(instance==null)?new ConsoleOutputStrategy():instance;
