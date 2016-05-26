@@ -10,7 +10,7 @@ public class Main
     {
         //setting new runner
         //
-        Strategy strategy = new ConsoleOutputStrategy();
+        Strategy strategy = new InMemoryStrategy();
 
 
         new Runner(strategy,"Hello World").run();
