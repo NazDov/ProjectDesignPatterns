@@ -10,12 +10,10 @@ public class Main
     {
         //setting new runner
         //
-        new Runner(new Strategy(){
+        Strategy strategy = new ConsoleOutputStrategy();
 
-            public void print(String message) {
-                System.out.println(message);
-            }
-        },"Hello World").run();
+
+        new Runner(strategy,"Hello World").run();
     }
 
 
