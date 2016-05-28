@@ -19,11 +19,12 @@ public class Main
 
         runner.addObserver((new Adapter(strategy)));
 
+        Handler handler = new HelloWorldHandler();
+        runner.addHandler(handler);
+
         Component comp = runner;
 
         comp =new ToUpperCaseDecorator(comp);
-
-        comp =new ReplaceSpaceTo(comp,"-");
 
         comp.run(msg);
 

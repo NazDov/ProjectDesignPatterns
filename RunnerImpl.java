@@ -3,9 +3,14 @@ package ProjectDesignPatterns;
 /**
  * Created by User on 26.05.2016.
  */
-public class RunnerImpl implements  Runner {
+ class RunnerImpl implements  Runner {
 
    private Observable observable = new SimpleObserver();
+    private Handler handler;
+
+     RunnerImpl(){
+
+    }
 
     @Override
     public void addObserver(Target target){
@@ -14,9 +19,20 @@ public class RunnerImpl implements  Runner {
     }
 
     @Override
+    public void addHandler(Handler handler) {
+        this.handler=handler;
+    }
+
+    @Override
     public void run(String msg) {
 
-        observable.notifyAll(msg);
+        //pass to handler
+
+        final Request request = new Request(msg);
+        handler.handle(request);
+
+        //pass to observer
+        observable.notifyAll(request.getMessage());
     }
 
 

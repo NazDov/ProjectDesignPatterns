@@ -5,4 +5,6 @@ package ProjectDesignPatterns;
  */
 public interface Runner extends Component {
     void addObserver(Target target);
+
+    void addHandler(Handler handler);
 }
