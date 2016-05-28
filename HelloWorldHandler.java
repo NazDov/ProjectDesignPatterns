@@ -6,10 +6,10 @@ package ProjectDesignPatterns;
 public class HelloWorldHandler extends Handler {
 
 
-    private MotionSymbol symbol;
+    private Command command;
 
-    public HelloWorldHandler(MotionSymbol symbol){
-        this.symbol=symbol;
+    public HelloWorldHandler(Command command){
+        this.command =command;
     }
 
 
@@ -20,7 +20,7 @@ public class HelloWorldHandler extends Handler {
 
         if(s.contains("hello") && s.contains("world")){
 
-            request.setMessage(request.getMessage()+ symbol.getSymbol());
+            command.change(request);
         }
 
     }
