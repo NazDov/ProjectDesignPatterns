@@ -11,7 +11,8 @@ public class Main
 
         String msg = "Hello World";
 
-        Runner runner = new Runner();
+        //we have now hid the Runner implementation from the main method
+        Runner runner = RunnerFactory.create();
 
         runner.addObserver((new Adapter(ConsoleOutputStrategy.getInstance())));
         InMemoryStrategy strategy = new InMemoryStrategy();
