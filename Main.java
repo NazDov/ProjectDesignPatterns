@@ -11,15 +11,21 @@ public class Main
 
         String msg = "Hello World";
 
-        Component component = new Runner(new Adapter(ConsoleOutputStrategy.getInstance()));
+        Runner runner = new Runner();
 
-        component = new ToUpperCaseDecorator(component);
+        runner.addObserver((new Adapter(ConsoleOutputStrategy.getInstance())));
+        InMemoryStrategy strategy = new InMemoryStrategy();
 
-        String replacement = "-";
+        runner.addObserver((new Adapter(strategy)));
 
-        component= new ReplaceSpaceTo(component, replacement);
+        Component comp = runner;
 
-        component.run(msg);
+        comp =new ToUpperCaseDecorator(comp);
+
+        comp =new ReplaceSpaceTo(comp,"-");
+
+        comp.run(msg);
+
     }
 
 

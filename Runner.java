@@ -5,16 +5,17 @@ package ProjectDesignPatterns;
  */
 public class Runner implements Component {
 
-    Target target;
+   private Observable observable = new SimpleObserver();
 
-    public Runner(Target target){
-        this.target=target;
+    public void addObserver(Target target){
+
+        observable.addObserver(new TargetObserverAdapter(target));
     }
 
 
     public void run(String msg) {
 
-        target.addMessages(msg);
+        observable.notifyAll(msg);
     }
 
 
