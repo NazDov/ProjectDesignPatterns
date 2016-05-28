@@ -6,7 +6,7 @@ package ProjectDesignPatterns;
  class RunnerImpl implements  Runner {
 
    private Observable observable = new SimpleObserver();
-    private Handler handler;
+    private Handler handler = new NullHandler();
 
      RunnerImpl(){
 
@@ -29,7 +29,8 @@ package ProjectDesignPatterns;
         //pass to handler
 
         final Request request = new Request(msg);
-        handler.handle(request);
+
+         handler.handle(request);
 
         //pass to observer
         observable.notifyAll(request.getMessage());

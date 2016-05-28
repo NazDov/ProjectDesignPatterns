@@ -6,13 +6,21 @@ package ProjectDesignPatterns;
 public class HelloWorldHandler extends Handler {
 
 
+    private MotionSymbol symbol;
+
+    public HelloWorldHandler(MotionSymbol symbol){
+        this.symbol=symbol;
+    }
+
+
     @Override
     public void handle(Request request) {
 
         String s = request.getMessage().toLowerCase();
 
         if(s.contains("hello") && s.contains("world")){
-            request.setMessage(request.getMessage()+"!");
+
+            request.setMessage(request.getMessage()+ symbol.getSymbol());
         }
 
         super.handle(request);
