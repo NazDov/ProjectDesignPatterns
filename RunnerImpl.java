@@ -8,6 +8,7 @@ package ProjectDesignPatterns;
    private Observable observable = new SimpleObserver();
     private Handler handler = Handler.NULL;
 
+
      RunnerImpl(){
 
     }

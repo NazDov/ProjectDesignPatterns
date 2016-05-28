@@ -13,9 +13,9 @@ public class HelloWorldHandler extends Handler {
     }
 
 
-    @Override
-    public void handle(Request request) {
 
+    @Override
+    protected void handleRequest(Request request) {
         String s = request.getMessage().toLowerCase();
 
         if(s.contains("hello") && s.contains("world")){
@@ -23,6 +23,5 @@ public class HelloWorldHandler extends Handler {
             request.setMessage(request.getMessage()+ symbol.getSymbol());
         }
 
-        super.handle(request);
     }
 }

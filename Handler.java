@@ -17,11 +17,14 @@ public abstract class Handler {
 
     public void handle(Request request) {
 
-        //do something
+        handleRequest(request);
 
 
         if(next!=null)
             next.handle(request);
 
     }
+
+
+    protected abstract void handleRequest(Request request);
 }
