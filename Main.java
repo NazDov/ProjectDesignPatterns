@@ -19,9 +19,8 @@ public class Main
 
         runner.addObserver((new Adapter(strategy)));
 
-        Handler handler = new HelloWorldHandler(new MotionSymbol("@"));
-        handler.addNext(new HelloWorldHandler(new MotionSymbol(":)")));
-        runner.addHandler(handler);
+        runner.addHandler(new HelloWorldHandler(new MotionSymbol("@")));
+        runner.addHandler(new HelloWorldHandler(new MotionSymbol("!")));
 
         Component comp = runner;
 

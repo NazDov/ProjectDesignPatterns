@@ -5,6 +5,8 @@ package ProjectDesignPatterns;
  */
 public abstract class Handler {
 
+    public static final Handler NULL = new NullHandler();
+
     private Handler next;
 
 
