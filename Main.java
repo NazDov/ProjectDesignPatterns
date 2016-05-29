@@ -18,22 +18,24 @@ public class Main
 
     private static void process(String msg, AbstractFactory factory) {
         //we have now hid the Runner implementation from the main method
-        Runner runner = RunnerFactory.create();
-        runner.addObserver((new Adapter(ConsoleOutputStrategy.getInstance())));
 
-        InMemoryStrategy strategy = new InMemoryStrategy();
+        InMemoryStrategy inMemoryStrategy = new InMemoryStrategy();
 
-        runner.addObserver((new Adapter(strategy)));
+        ConsoleOutputStrategy consoleOutputStrategy = ConsoleOutputStrategy.getInstance();
+
+        Component runner = RunnerBuilder
+                .forStrategy(consoleOutputStrategy)
+                .addCommand(new AddSymbolCommand(factory))
+                .addDecorator(ToUpperCaseDecorator.class)
+                .addDecorator(ReplaceSpaceTo.class)
+                .createComponent();
 
 
-        runner.addHandler(new HelloWorldHandler(new AddSymbolCommand(factory)));
-        runner.addHandler(new HelloWorldHandler(new AddSmileCommand(factory)));
+        runner.run(msg);
 
-        Component comp = runner;
 
-        comp =new ToUpperCaseDecorator(comp);
 
-        comp.run(msg);
+
     }
 
 

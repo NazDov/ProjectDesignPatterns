@@ -9,9 +9,6 @@ package ProjectDesignPatterns;
     private Handler handler = Handler.NULL;
 
 
-     RunnerImpl(){
-
-    }
 
     @Override
     public void addObserver(Target target){
