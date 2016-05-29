@@ -31,9 +31,9 @@ package ProjectDesignPatterns;
 
         //pass to handler
 
-        final Request request = new Request(msg);
+         Request request = new Request(msg);
 
-         handler.handle(request);
+         request = handler.handle(request);
 
         //pass to observer
         observable.notifyAll(request.getMessage());

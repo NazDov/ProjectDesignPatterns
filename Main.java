@@ -10,7 +10,7 @@ public class Main
     {
 
         String msg = "Hello World";
-        AbstractFactory factory = new SadFactory();
+        AbstractFactory factory = new HappyFactory();
         process(msg, factory);
 
 
@@ -23,9 +23,9 @@ public class Main
 
         ConsoleOutputStrategy consoleOutputStrategy = ConsoleOutputStrategy.getInstance();
 
-        Component runner = RunnerBuilder
-                .forStrategy(consoleOutputStrategy)
+        Component runner = RunnerBuilder.forStrategy(consoleOutputStrategy)
                 .addCommand(new AddSymbolCommand(factory))
+                .addCommand(new AddSmileCommand(factory))
                 .addDecorator(ToUpperCaseDecorator.class)
                 .addDecorator(ReplaceSpaceTo.class)
                 .createComponent();

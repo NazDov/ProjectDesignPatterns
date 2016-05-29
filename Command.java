@@ -5,5 +5,5 @@ package ProjectDesignPatterns;
  */
 public interface Command {
 
-    void change(Request request);
+    Request change(Request request);
 }

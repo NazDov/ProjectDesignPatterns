@@ -11,12 +11,14 @@ public class RunnerBuilder {
 
     public RunnerBuilder(){
 
-        this.setComponent(RunnerFactory.create());
+        component = RunnerFactory.create();
     }
 
-    private static RunnerBuilder runnerBuilder = new RunnerBuilder();
+
 
     public static RunnerBuilder forStrategy(Strategy instance) {
+
+        RunnerBuilder runnerBuilder = new RunnerBuilder();
 
         ((Runner)runnerBuilder.component).addObserver(new Adapter(instance));
 
@@ -24,32 +26,30 @@ public class RunnerBuilder {
     }
 
 
-    public static RunnerBuilder addCommand(Command addSmileCommand) {
+    public RunnerBuilder addCommand(Command addSmileCommand) {
 
-        ((Runner)runnerBuilder.component).addHandler(new HelloWorldHandler(addSmileCommand));
+        ((Runner)component).addHandler(new HelloWorldHandler(addSmileCommand));
 
-        return runnerBuilder;
+        return this;
     }
 
-    public void setComponent(Runner component) {
-        this.component = component;
-    }
 
-    public static RunnerBuilder addHandler(Handler handler) {
 
-        ((Runner)runnerBuilder.component).addHandler(handler);
+    public  RunnerBuilder addHandler(Handler handler) {
 
-        return runnerBuilder;
+        ((Runner)component).addHandler(handler);
+
+        return this;
 
     }
 
-    public static RunnerBuilder addDecorator(Class<? extends Component> decoratorType) {
+    public  RunnerBuilder addDecorator(Class<? extends Component> decoratorType) {
 
 
         try {
 
             try {
-                Component addComponent = runnerBuilder.component;
+                Component addComponent = component;
 
                 if (decoratorType == ReplaceSpaceTo.class) {
                     addComponent = decoratorType.getConstructor(Component.class, String.class).newInstance(addComponent, "-");
@@ -58,7 +58,7 @@ public class RunnerBuilder {
                     addComponent = decoratorType.getConstructor(Component.class).newInstance(addComponent);
                 }
 
-                runnerBuilder.component = addComponent;
+                component = addComponent;
 
 
             } catch (Exception e) {
@@ -71,13 +71,13 @@ public class RunnerBuilder {
 
 
 
-        return runnerBuilder;
+        return this;
     }
 
 
 
-    public static Component createComponent(){
-        return runnerBuilder.component;
+    public  Component createComponent(){
+        return component;
     }
 
 

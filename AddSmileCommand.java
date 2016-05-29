@@ -15,7 +15,9 @@ public class AddSmileCommand implements Command {
 
 
     @Override
-    public void change(Request request) {
-        request.setMessage(request.getMessage()+factory.getSmile().get());
+    public Request change(Request request) {
+        Request changedReq = new Request(request.getMessage()+factory.getSmile().get());
+
+        return changedReq;
     }
 }
